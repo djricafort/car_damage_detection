@@ -13,13 +13,16 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import matplotlib.lines as lines
 from matplotlib.patches import Polygon
-from mrcnn import visualize
-import model as modellib
-from config import Config
+from mrcnn import model as modellib
+from mrcnn.config import Config
+# import model as modellib
+# from config import Config
 
 
 # Root directory of the project
 ROOT_DIR = os.getcwd()
+print("ROOT DIRECTORY")
+print(ROOT_DIR)
 sys.path.append(ROOT_DIR)  # To find local version of the library
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 custom_WEIGHTS_PATH = "/home/dj/Documents/logs/scratch20191023T2154/mask_rcnn_scratch_0015.h5"
@@ -174,7 +177,7 @@ class Detector():
         self = self
 
     def detect_scratches(image_dir):
-        reload(visualize)
+        # reload(visualize)
         config = InferenceConfig()
         model = modellib.MaskRCNN(mode="inference", config=config,
                                   model_dir=MODEL_DIR)

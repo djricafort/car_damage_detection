@@ -1068,7 +1068,7 @@ def rpn_bbox_loss_graph(config, target_bbox, rpn_match, rpn_bbox):
                                    config.IMAGES_PER_GPU)
 
     loss = smooth_l1_loss(target_bbox, rpn_bbox)
-
+    
     loss = K.switch(tf.size(loss) > 0, K.mean(loss), tf.constant(0.0))
     return loss
 
@@ -2187,7 +2187,6 @@ class MaskRCNN():
             optimizer=optimizer,
             loss=[None] * len(self.keras_model.outputs))
 
-        self.keras_model.metrics_tensors = []
         # Add metrics for losses
         for name in loss_names:
             if name in self.keras_model.metrics_names:

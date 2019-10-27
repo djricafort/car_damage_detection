@@ -15,13 +15,7 @@ import matplotlib.lines as lines
 from matplotlib.patches import Polygon
 from mrcnn import model as modellib
 from mrcnn.config import Config
-# import model as modellib
-# from config import Config
 
-# for google drive
-# from apiclient import discovery
-# from httplib2 import Http
-# from oauth2client import file, client, tools
 import requests
 
 
@@ -31,20 +25,10 @@ print("ROOT DIRECTORY")
 print(ROOT_DIR)
 sys.path.append(ROOT_DIR)  # To find local version of the library
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
-# custom_WEIGHTS_PATH = "/home/dj/Documents/logs/scratch20191023T2154/mask_rcnn_scratch_0015.h5"
 DEVICE = "/gpu:0"
 
 class_names = ['BG', 'scratch']
 
-# def download_custom_weights():
-#     file_id = "1U9zY6GUnEWkrOkSaWuttpz-HJEVAG_K1"
-#     request = drive_service.files().get_media(fileId=file_id)
-#     fh = io.BytesIO()
-#     downloader = MediaIoBaseDownload(fh, request)
-#     done = False
-#     while done is False:
-#         status, done = downloader.next_chunk()
-#         print "Download %d%%." % int(status.progress() * 100)
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
 
@@ -228,7 +212,6 @@ class Detector():
         self = self
 
     def detect_scratches(image_dir):
-        # reload(visualize)
         # load custom model load_weights
         if not os.path.exists('custom_mask_rcnn_scratch.h5'):
             # download file

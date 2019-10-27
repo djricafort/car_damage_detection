@@ -142,7 +142,9 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             ax.add_patch(p)
     ax.set_title("Car Scratches")
     ax.imshow(masked_image.astype(np.uint8))
-    f.savefig("output/scratch_{:%Y%m%dT%H%M%S}.png".format(datetime.datetime.now()))
+    if not os.path.exists('output'):
+        os.makedirs('output')
+    f.savefig("output/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now()))
     plt.show()
 
 class CustomConfig(Config):

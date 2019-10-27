@@ -26,6 +26,7 @@ def _parse_requirements(file_path):
 
 # parse_requirements() returns generator of pip.req.InstallRequirement objects
 try:
+    logging.warning('Loading requirements file.')
     install_reqs = _parse_requirements("requirements.txt")
 except Exception:
     logging.warning('Fail load requirements file, so using default ones.')
@@ -40,7 +41,18 @@ setup(
     license='MIT',
     description='Mask R-CNN for object detection and instance segmentation',
     packages=["mrcnn", "damage_detector"],
-    install_requires=install_reqs,
+    install_requires=['numpy',
+                      'scipy',
+                      'Pillow',
+                      'cython',
+                      'matplotlib',
+                      'scikit-image',
+                      'tensorflow>=1.3.0',
+                      'keras>=2.0.8',
+                      'opencv-python',
+                      'h5py',
+                      'imgaug',
+                      'IPython[all]'],
     include_package_data=True,
     python_requires='>=3.4',
     long_description="""This is an implementation of Mask R-CNN on Python 3, Keras, and TensorFlow.

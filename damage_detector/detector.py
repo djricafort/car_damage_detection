@@ -144,8 +144,11 @@ def display_instances(image, boxes, masks, class_ids, class_names,
     ax.imshow(masked_image.astype(np.uint8))
     if not os.path.exists('output'):
         os.makedirs('output')
-    f.savefig("output/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now()))
-    plt.show()
+
+    filename = "output/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now())
+    f.savefig(filename)
+    print("File saved in ", filename)
+    # plt.show()
 
 class CustomConfig(Config):
     """Configuration for training on the toy  dataset.

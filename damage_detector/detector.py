@@ -221,6 +221,8 @@ class Detector():
             custom_weights_path = ROOT_DIR + "/custom_mask_rcnn_scratch.h5"
             download_file_from_google_drive(file_id, custom_weights_path)
             print("Download complete")
+        else:
+            custom_weights_path = ROOT_DIR + "/custom_mask_rcnn_scratch.h5"
 
         config = InferenceConfig()
         model = modellib.MaskRCNN(mode="inference", config=config,

@@ -26,6 +26,7 @@ print(ROOT_DIR)
 sys.path.append(ROOT_DIR)  # To find local version of the library
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 DEVICE = "/gpu:0"
+# global output_filename
 
 class_names = ['BG', 'scratch']
 
@@ -178,6 +179,9 @@ def display_instances(image, boxes, masks, class_ids, class_names,
     filename = "output/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now())
     f.savefig(filename)
     print("File saved in ", filename)
+    # output_filename = filename
+    # print(output_filename)
+    return filename
     # plt.show()
 
 class CustomConfig(Config):
@@ -237,6 +241,8 @@ class Detector():
         # Display results
         ax = get_ax(1)
         r = results[0]
-        display_instances(image, r['rois'], r['masks'], r['class_ids'],
+        output_filename = display_instances(image, r['rois'], r['masks'], r['class_ids'],
                                     class_names, r['scores'], ax=ax,
                                     title="Predictions")
+
+        return output_filename

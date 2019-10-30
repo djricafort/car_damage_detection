@@ -46,8 +46,11 @@ $(document).ready(function () {
             success: function (data) {
                 // Get and display the result
                 $('.loader').hide();
-                $('#result').fadeIn(600);
-                $('#result').text(' Result:  ' + data);
+                var filename = '/' + data;
+                // var img = document.createElement("IMG");
+                // img.src = filename;
+                // document.getElementById('imageOutput').appendChild(img);
+                document.getElementById('imageOutput').src = filename;
                 console.log('Success!');
             },
         });

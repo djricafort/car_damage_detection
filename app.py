@@ -43,8 +43,8 @@ def upload():
         f.save(file_path)
 
         # Make prediction
-        outpout_filename = Detector.detect_scratches(file_path)
-        result = "File saved in " + outpout_filename
+        output_filename = Detector.detect_scratches(file_path)
+        result = output_filename
         return result
     return None
 

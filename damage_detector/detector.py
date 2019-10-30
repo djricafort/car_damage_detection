@@ -173,10 +173,10 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             ax.add_patch(p)
     ax.set_title("Car Scratches")
     ax.imshow(masked_image.astype(np.uint8))
-    if not os.path.exists('output'):
-        os.makedirs('output')
+    if not os.path.exists('static/predictions'):
+        os.makedirs('static/predictions')
 
-    filename = "output/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now())
+    filename = "static/predictions/scratch_{:%Y%m%dT%H%M%S}.jpg".format(datetime.datetime.now())
     f.savefig(filename)
     print("File saved in ", filename)
     # output_filename = filename

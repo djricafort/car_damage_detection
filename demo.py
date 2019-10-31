@@ -1,4 +1,5 @@
 from damage_detector.detector import Detector
 if __name__ == '__main__':
-    print("test")
-    Detector.detect_scratches("samples/scratched.jpg")
+    print("Enter image path: ")
+    image_path = input()
+    Detector.detect_scratches(image_path)

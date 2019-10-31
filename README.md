@@ -8,6 +8,14 @@ pip install .
 ``` 
 2. Run demo.py to test it in your terminal or run app.py to run it in your browser
 
+3. To use as api:
+```python
+from damage_detector.detector import Detector
+if __name__ == '__main__':
+    image_path = '<input image path>'
+    Detector.detect_scratches(image_path)
+```
+
 **if an error is encountered due to your tensorflow version, please install tensorflow version 1.14.0
 
 ## When running using demo.py

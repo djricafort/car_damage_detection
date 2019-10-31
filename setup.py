@@ -42,6 +42,8 @@ setup(
     description='Mask R-CNN for object detection and instance segmentation',
     packages=["mrcnn", "damage_detector"],
     install_requires=['numpy',
+		      'flask',
+		      'gevent',
                       'scipy',
                       'Pillow',
                       'cython',
